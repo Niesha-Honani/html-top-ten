@@ -15,8 +15,36 @@
   <body>
     <div class="grid-container">
       <header class="grid-header round-corners" title="I'm a Header!">
+        <!--Animated Nav Bar-->
+        <nav role="navigation">
+          <div id="menuToggle">
+            <input type="checkbox" id="menuCheckbox"/>
+                  <!--
+          Some spans to act as a hamburger.
+          
+          They are acting like a real hamburger,
+          not that McDonalds stuff.
+          -->
+          <span></span>
+          <span></span>
+          <span></span>
+        <ul id="menu">
+          <li><a href="#">
+            <label for="menuCheckbox" onclick="this.parentNode.click();">Home</label>
+          </a></li>
+          <li><a href="#about">
+            <label for="menuCheckbox" onclick="this.parentNode.click();">About</label>
+          </a></li>
+          <li><a href="#contact">
+            <label for="menuCheckbox" onclick="this.parentNode.click();">Contact Skeletor</label>
+          </a></li>
+        </ul>
+          </div>
+          
+        </nav>
         <h1 class="anton-regular" title="I'm an H1">My <span class="grid-container-span">Top</span> Ten</h1>
         <img class="skeletor-image"title="I'm an img" src="https://preview.redd.it/this-is-probably-gonna-be-the-dumbest-question-asked-on-v0-9wrb9bkuijje1.jpeg?auto=webp&s=001d448ffae9f919efb72bd5009a7fab4209dbf2"/>
+
       </header>
       <div class="grid-column-left kedebideri-bold round-corners">
         <h2 title="I'm an H2">CSS Things</h2>
@@ -143,18 +171,147 @@
         </div><br>
         <hr>
         <div class="definition" title="I'm a Definition Div!">
-          <h3>4. CSS</h3>
-          <p>Describe this term, and make an example of how its used:</p>
-          <!-- EXAMPLE CODE GOES HERE -->
-        <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
-        <a href="#">resource link</a>
+          <h3>4. Pure CSS Hamburger Menu</h3>
+          <p>CSS styling can do alot including making something like a hamburger menu</p>
+          <p>Hamburger menus can use Javascript or SCSS but the original CSS Hamburger Menu 
+            practically uses every CSS styling existing.
+          </p>
+          <h3>Hamburger Menu : MVP CSS</h3>
+          <ul>
+            <li>1. cursor: The cursor CSS property sets the mouse cursor, if any, to show when the mouse pointer is over an element.</li>
+            <li>2. Span styling to make a Hamburger</li>
+            <li>3. transform: Animating the Hamburger to do things lick rotate onclick using transform</li>
+          </ul>
+          <p> Creating a hamburger menu is very creative and in my opinion if you
+            can create a hamburger menu with transition, you are CSS-ing good. 
+            For this the cursor can be used to change the point icon, but the traditional pointer to selct is used here.
+            There is also a "not allowed", which I didn't know how to use it before.
+          </p>
+        <pre title="i'm a pre tag for code!">
+          <code>
+            #menuToggle input
+          {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            left: -5px;
+            
+            cursor: pointer;
+            
+            opacity: 0; /* hide this */
+            z-index: 2; /* and place it over the hamburger */
+            
+            -webkit-touch-callout: none;
+          }
+          </code>
+        </pre>
+        <p>
+          Using CSS to change the hamburger menu int a cross. Key styling is transform
+          which is used to rotate span by 45 degrees, but turn the middle (nth child) to opacity:0
+          and the last one rotating again at 45 degrees in the opposite direction.
+          In learning about Hamburger menus - I also learned that people take the time to
+          make hamburger menus. They spend TIME.
+        </p>
+        <pre title="i'm a pre tag for code!">
+          <code>
+            #menuToggle input:checked ~ span
+            {
+              opacity: 1;
+              transform: rotate(45deg) translate(-2px, -1px);
+              background: #232323;
+            }
+
+            /*
+            * But let's hide the middle one.
+            */
+            #menuToggle input:checked ~ span:nth-last-child(3)
+            {
+              opacity: 0;
+              transform: rotate(0deg) scale(0.2, 0.2);
+            }
+
+            /*
+            * Ohyeah and the last one should go the other direction
+            */
+            #menuToggle input:checked ~ span:nth-last-child(2)
+            {
+              transform: rotate(-45deg) translate(0, -1px);
+            }
+          </code>
+        </pre>
+        <a href="https://codepen.io/erikterwan/pen/EVzeRP">Codepen | Pure CSS Hamburger fold-out menu</a>
       </div>
+      <br>
+      <hr>
       <div class="definition" title="I'm a Definition Div!">
-        <h3>5. TERM TITLE</h3>
-        <p>Describe this term, and make an example of how its used:</p>
+        <h3>5. CSS - Animation</h3>
+        <p>The transition CSS property is a shorthand property for transition-property, transition-duration, transition-timing-function, transition-delay, and transition-behavior.
+          This is combined with embedding a gif.
+        </p>
+        <p>I made this with a div with class, "animate-this", inside another div with the same
+          class, to see what it would look like. I think it causes motion sickness.
+        </p>
         <!-- EXAMPLE CODE GOES HERE -->
-      <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
-      <a href="#">resource link</a>
+        <div class="animate-this">
+          <div class="animate-this round-corners" >
+            <div class="tenor-gif-embed gif-wrap"
+            data-postid="13398368" 
+            data-share-method="host" 
+            data-aspect-ratio="1.33333" 
+            data-width="100%">
+            <a href="https://tenor.com/view/nope-skeletor-gif-13398368">Nope Skeletor GIF</a>
+            </div>
+          </div>
+        </div>
+        
+      <pre title="i'm a pre tag for code!"> 
+        <code>
+          .animate-this{
+            margin: auto;
+            height: 400px;
+            width: 400px;
+            animation: 
+                pulse 3s ease infinite alternate, 
+                nudge 5s linear infinite alternate;
+            border-radius: 3%;
+            overflow: hidden;
+            position:relative;
+            }
+        
+            @keyframes pulse {
+            0%, 100% {
+                background-color: black;
+            }
+            50% {
+                background-color: #ff66e9;
+            }
+            }
+        
+            @keyframes nudge {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            
+            50% {
+                transform: translate(150px, 0);
+            }
+            
+            80% {
+                transform: translate(-150px, 0);
+            }
+        }
+        
+        .tenor-gif-embed{
+            height: 100%;
+            width: 100%;
+        }
+        </code>
+      </pre>
+      <a href="https://css-tricks.com/almanac/properties/a/animation/">CSS Tricks | Animation</a>
+      <a href="https://prismic.io/blog/css-animation-examples">Prismic| Animation Samples</a>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using">mdn| Animation</a>
     </div><br>
     <hr>
       </div>
@@ -248,5 +405,7 @@
     player.stopVideo();
   }
 </script>
+<!--Gif Script-->
+<script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 </body>
 </html>
