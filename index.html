@@ -3,15 +3,180 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <!--CSS-->
     <link rel="stylesheet" type="text/css" href="style.css">
+    <!--Fonts - Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Kedebideri:wght@400;500;600;700;800;900&family=Notable&family=Roboto:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Zen+Dots&display=swap" rel="stylesheet">
+
     <title> My Top Ten Tags & Styles</title>
   </head>
   <body>
-    <header title="I'm a Header!">
-      <h1 title="I'm an H1">My Top Ten</h1>
-      <img title="I'm an img" src="http://www.incrediblethings.com/wp-content/uploads/2012/07/cat-votes-for-himself.jpg">
-    </header>
-    <section class="section" title="I'm The HTML Section">
+    <div class="grid-container">
+      <header class="grid-header round-corners" title="I'm a Header!">
+        <h1 class="anton-regular" title="I'm an H1">My <span class="grid-container-span">Top</span> Ten</h1>
+        <img class="skeletor-image"title="I'm an img" src="https://preview.redd.it/this-is-probably-gonna-be-the-dumbest-question-asked-on-v0-9wrb9bkuijje1.jpeg?auto=webp&s=001d448ffae9f919efb72bd5009a7fab4209dbf2"/>
+      </header>
+      <div class="grid-column-left kedebideri-bold round-corners">
+        <h2 title="I'm an H2">CSS Things</h2>
+        <p title="I'm a p">Here are a few CSS things I like:</p>
+        <h2>Skeletor's Best Insults - YouTube</h2>
+         <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+        <div id="player"></div>
+        <div class="definition" title="I'm a Definition Div!">
+          <h3>1. Grid CSS styling</h3>
+          <p>The CSS grid layout module excels at dividing a page into major regions or defining
+            the relationship in terms of size, position, and layering between parts of a control 
+            built from HTML primitives.<br>
+            Like tables, grid layout enables an author to align elements into columns and rows. However, many more layouts are either possible or easier with CSS grid than they were with tables. For example, a grid container's child elements could position themselves so they actually overlap and layer, similar to CSS positioned elements.</p>
+          <!-- EXAMPLE CODE GOES HERE -->
+          <h2>Example of Grid Layout</h2>
+          <pre title="i'm a pre tag for code!">
+          <code>
+          .grid-container{
+              display: grid;
+              grid-template-areas: 3;
+              grid-template-columns: repeat(2, 1fr);
+              gap: 10px;
+              grid-auto-rows: 100px, auto;
+          }
+          .grid-header{
+              grid-column:1/span 2;
+              padding:20px;
+              text-align: center;
+              font-size: 1.5em;
+              color:#57f2ff;
+              background-color: #773399;
+              border: double 15px #57f2ff;
+          }
+
+          .grid-item{
+              background-color: lightblue;
+              padding: 1em;
+              border: 1px solid blue;
+          }
+
+          .grid-column-left{
+              background-color:lightgreen;
+              padding: 20px;
+          }
+          </code>
+        </pre>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout">Resource: mdn | CSS grid layout</a>
+        </div><br>
+        <hr>
+        <div class="definition" title="I'm a Definition Div!">
+          <h3>2. CSS Functions | circle() - clip-path</h3>
+          <p>The circle() CSS function defines a circle using a radius and a position. It is one of the <basic-shape> data types.</p>
+          <p>CSS Functions are pretty neat because it takes in parameters so that you can do some pretty interesting
+            stuff besides change the image shape. Another one, is calc() and blur().</p>
+        <!-- EXAMPLE CODE GOES HERE -->
+        <pre title="i'm a pre tag for code!">
+          <code>
+            .skeletor-image{
+              display:block;
+              width: 15%;
+              height: auto;
+              margin: auto;
+             <code class="highlight">
+              shape-outside: circle(50%);
+              clip-path: ellipse(75% 100% at 50% 100%);
+             </code> 
+              border: solid 10px black;
+          }
+          </code></pre>
+          <p>I used this snippet to create the ellipse around 
+            the Skeletor image.
+            <br>
+            The one drawback I didn't compensate for is viewport
+            sizing, that can affect how the styling works in the function.
+            I originally tried an arch, but I didn't adjust so the function
+            would resize to the viewport sizes. It's a little more in-depth.
+          </p>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/basic-shape/circle">Resource: mdn | circle()</a>
+        </div>
+        <br>
+        <hr>
+        <div class="definition" title="I'm a Definition Div!">
+          <h3>3. CSS Font Styling | Everything</h3>
+          <p>CSS Font styling has so many different ways to style font, it's 
+            hard to choose just one. So I made a full styling of the main H1 "Top Ten"
+
+            I'm not a styling genious with fonts, I pretty much looked at some website
+            fonts that are trending and copied some of the styling values and played
+            with the values using inspector.</p>
+            <h3>Interesting Font Styling</h3>
+            <ul>
+              <li>text-transform: sets everything to uppercase</li>
+              <li>letter-spacing: adds spacing in between letters</li>
+              <li>transform: translate(-50%, -50%) -  The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.</li>
+              <li>z-index: The z-index CSS property sets the z-order of a positioned element and its descendants or flex and grid items. Overlapping elements with a larger z-index cover those with a smaller one.</li>
+              <li>opacity: Makes whatever element or font transparent.</li>
+              <li>pointer-events: The pointer-events CSS property sets under what circumstances (if any) a particular graphic element can become the target of pointer events.
+                Side Note: This is also good if your Font or element overlaps into a clickable area
+              </li>
+            </ul>
+          <pre title="i'm a pre tag for code!">
+            <code>
+              .grid-header h1{
+                font-size: clamp(3rem, 8vw, 7rem);
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                color: yellow;
+            
+                position: absolute;
+                left:55%;
+                top: 45%;
+                transform: translate(-50%, -50%);
+            
+                text-shadow:
+                    1px 2px 2px #ff66e9,
+                    0 .3em .7em black;
+                opacity: .80;
+                z-index: 1;
+                pointer-events: none;
+            }
+            </code></pre>
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font">mdn | Font Styling Group</a><br>
+          <a href="https://css-tricks.com/">CSS Tricks</a>
+        </div><br>
+        <hr>
+        <div class="definition" title="I'm a Definition Div!">
+          <h3>4. CSS</h3>
+          <p>Describe this term, and make an example of how its used:</p>
+          <!-- EXAMPLE CODE GOES HERE -->
+        <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
+        <a href="#">resource link</a>
+      </div>
+      <div class="definition" title="I'm a Definition Div!">
+        <h3>5. TERM TITLE</h3>
+        <p>Describe this term, and make an example of how its used:</p>
+        <!-- EXAMPLE CODE GOES HERE -->
+      <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
+      <a href="#">resource link</a>
+    </div><br>
+    <hr>
+      </div>
+      <div class="grid-column-right">
+        <h2 class="anton-regular">Inspirational</h2>
+        <div><img class="skeletor-meme"src="images/skeletor-facts-until-we-meet-again-meme-full-d96eea91.webp"</div>
+      </div>
+      <div class="grid-column-right zen-dots-regular">
+        <h2 class="ubuntu-bold-italic">3. Font styling</h2>
+        <p class="notable-regular">I like font styling</p>
+        <p class="kedebideri-bold">I like font styling</p>
+        <p class="zen-dots-regular">I like font styling</p>
+      </div>
+      <div class="grid-column-right">
+        <h2>2. Header tag </html></h2>
+        <ul>
+          <li>Title</li>
+          <li>Image</li>
+          <li>First impressions</li>
+        </ul>
+      </div>
+    <section class="grid-item section" title="I'm The HTML Section">
       <h2 title="I'm an H2">HTML</h2>
       <p title="I'm a p">Here are a few HTML things I like:</p>
       <!-- Copy this Definition Div for each HTML thing you choose -->
@@ -23,7 +188,7 @@
       <a href="#">resource link</a>
     </div>
   </section>
-  <section class="section" title="I'm The CSS Section">
+  <section class="grid-item section" title="I'm The CSS Section">
     <h2 title="I'm an H2">CSS Things</h2>
     <p title="I'm a p">Here are a few CSS things I like:</p>
     <!-- Copy this Definition Div for each CSS thing you choose -->
@@ -37,6 +202,51 @@
 </section>
 <footer>
   <p>Made with gusto by <a href="#">YOUR NAME HERE</a></p>
-</footer>
+</footer></div>
+<script>
+  // 2. This code loads the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // 3. This function creates an <iframe> (and YouTube player)
+  //    after the API code downloads.
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+      height: '390',
+      width: '640',
+      videoId: 'mNz6eHfsESQ',
+      playerVars: {
+        'playsinline': 1,
+        'autoplay':0
+      },
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  // 4. The API will call this function when the video player is ready.
+  function onPlayerReady(event) {
+    event.target.playVideo();
+  }
+
+  // 5. The API calls this function when the player's state changes.
+  //    The function indicates that when playing a video (state=1),
+  //    the player should play for six seconds and then stop.
+  var done = false;
+  function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING && !done) {
+      setTimeout(stopVideo, 6000);
+      done = true;
+    }
+  }
+  function stopVideo() {
+    player.stopVideo();
+  }
+</script>
 </body>
 </html>
