@@ -321,10 +321,13 @@
           <p title="I'm a p">Here are a few HTML things I like:</p>
           <!-- Copy this Definition Div for each HTML thing you choose -->
           <div class="definition" title="I'm a Definition Div!">
-            <h3>1. TERM TITLE</h3>
-            <p>Describe this term, and make an example of how its used:</p>
+            <h3>1. &lt;/meter&gt;</h3>
+            <p>Describe gggf this term, and make an example of how its used:</p>
             <!-- EXAMPLE CODE GOES HERE -->
-              <meter min="0" max="100" low="59" high="90" optimum="90" value="50">50%</meter>
+            <div id="meter_percent" class="anton-regular"><h1>0%</h1></div>
+            <meter id="change_meter" min="0" max="100" low="10" high="90" optimum="98" value="50"></meter>
+            <button onclick="change_meter()">Update Meter</button>
+            
             <pre title="i'm a pre tag for code!">
               <code>
   &lt;meter min="0" max="100" low="59" high="90" optimum="90" value="50"&gt; 50% &lt;/meter&gt;
@@ -337,11 +340,25 @@
         <section class="grid-item section" title="I'm The HTML Section">
         <!-- Copy this Definition Div for each HTML thing you choose -->
           <div class="definition" title="I'm a Definition Div!">
-            <h3>2. TERM TITLE</h3>
-            <p>Describe this term, and make an example of how its used:</p>
+            <h3>2. &lt;progress&gt;</h3>
+            <p>The &lt;progress&gt; HTML element displays an indicator showing the completion
+               progress of a task, typically displayed as a progress bar.</p>
             <!-- EXAMPLE CODE GOES HERE -->
-            <pre title="i'm a pre tag for code!"> < html > is the opening tag and < / html > is the closing tag.</pre>
+            <pre title="i'm a pre tag for code!">
+              <code>
+                &lt;progress id=&quot;project&quot; max=&quot;100&quot; value=&quot;70&quot;&gt; 70% &lt;/progress&gt;
+              </code>
+            </pre>
+            <div class="hidden_image_wrapper">
+              <img src="images/no_mustache.png" alt="secret_image" class="reveal-image">
+              <div class="show_image"></div>
+              <div id="progress"><progress id="loading_bar" max="100" value="70"> 70% </progress></div>
+              <br>
+            </div>
+            
             <a href="#">resource link</a>
+
+            
           </div>
         </section><br>
         <hr>
@@ -431,5 +448,18 @@
 </script>
 <!--Gif Script-->
 <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+<!--Change meter script-->
+<script>
+  function change_meter(){
+    const meter = document.getElementById("change_meter");
+    meter.value = Math.random()*100; //updates meter on click
+    const meter_text = document.getElementById("meter_percent");
+    meter_text.innerHTML = meter.value.toFixed() + "%";
+  }
+</script>
+<script>
+  const progress_bar = document.getElementById("")
+</script>
 </body>
 </html>
